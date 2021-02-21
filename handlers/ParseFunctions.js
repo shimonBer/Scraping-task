@@ -26,10 +26,12 @@ const parse = async (link, depth = 3) => {
         await set(link, html)
 
         // Continue search only if we are not in the leaf level
-        if (depth > 0) {
-            for (const collected_link of links) {
-                parse(collected_link, depth - 1)
-            }
+        if (depth < 1) {
+            return
+        }
+
+        for (const collected_link of links) {
+            parse(collected_link, depth - 1)
         }
     } catch (err) {
         console.log(err.message)

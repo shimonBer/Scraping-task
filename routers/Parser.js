@@ -4,7 +4,7 @@ const { parse } = require("../handlers/ParseFunctions")
 
 router.post("/", async (req, res) => {
     let url = req.body.url
-    response = await parse(url)
+    await parse(url)
     res.status(200)
 })
 
